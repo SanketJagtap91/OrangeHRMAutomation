@@ -11,30 +11,11 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import com.nse.base.WebDriverWrapper;
 
 
-public class LoginUITest {
-	private WebDriver driver;
-	
-	
-	@BeforeMethod
-	public void setup() 
-	{
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-		driver.get("https://opensource-demo.orangehrmlive.com/");
+public class LoginUITest extends WebDriverWrapper {
 
-	}
-	
-	@AfterMethod
-	public void teardown() 
-	{
-		driver.quit();
-	}
-	
 	@Test
 	public void validateTitleTest() 
 	{
@@ -46,10 +27,10 @@ public class LoginUITest {
 	@Test
 	public void UIcomponentTest() {
 		
-		Boolean userNameTEsxBox = driver.findElement(By.id("txtUsername")).isDisplayed();
-		Boolean passwordTEsxBox = driver.findElement(By.id("txtPassword")).isDisplayed();
-		Boolean loginButton = driver.findElement(By.id("btnLogin")).isDisplayed();
-		Boolean forgotPasswordLink = driver.findElement(By.partialLinkText("Forgot")).isDisplayed();
+		boolean userNameTEsxBox = driver.findElement(By.id("txtUsername")).isDisplayed();
+		boolean passwordTEsxBox = driver.findElement(By.id("txtPassword")).isDisplayed();
+		boolean loginButton = driver.findElement(By.id("btnLogin")).isDisplayed();
+		boolean forgotPasswordLink = driver.findElement(By.partialLinkText("Forgot")).isDisplayed();
 		String forgotPasswordText = driver.findElement(By.partialLinkText("Forgot")).getText();
 		
 		Assert.assertTrue(userNameTEsxBox);
