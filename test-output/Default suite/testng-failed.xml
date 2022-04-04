@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.nse.test.LoginUITest">
+      <class name="com.nse.test.LoginTest">
         <methods>
-          <include name="UIcomponentTest"/>
           <include name="setup"/>
           <include name="teardown"/>
+          <include name="validCredentialTest" invocation-numbers="1"/>
         </methods>
-      </class> <!-- com.nse.test.LoginUITest -->
+      </class> <!-- com.nse.test.LoginTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
